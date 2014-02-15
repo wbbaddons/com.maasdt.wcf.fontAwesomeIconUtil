@@ -4,8 +4,8 @@
 		<packagename>Font Awesome Icon Util</packagename>
 		<packagedescription><![CDATA[Provides PHP and JavaScript API for selecting Font Awesome icons]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Stellt PHP- und JavaScript-API zur Auswahl von Font Awesome-Icons bereit]]></packagedescription>
-		<version>1.0.0 RC 1</version>
-		<date>2014-02-01</date>
+		<version>1.0.0</version>
+		<date>2014-02-15</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -21,5 +21,10 @@
 		<instruction type="file">files.tar</instruction>
 		
 		<instruction type="language">language/*.xml</instruction>
+	</instructions>
+	
+	<instructions type="update" fromversion="1.0.0 RC 1">
+		<!-- nothing changed but at least one update instruction has to exist -->
+		<instruction type="file">files.tar</instruction>
 	</instructions>
 </package>
