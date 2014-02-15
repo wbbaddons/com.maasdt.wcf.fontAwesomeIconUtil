@@ -64,6 +64,13 @@ WCF.Icon.FontAwesome.IconList = Class.extend({
 		this._buttons.click($.proxy(this._showIconList, this));
 		
 		this._iconListPrototype = $('<ul class="containerBoxList tripleColumned" />');
+		this._createListItems();
+	},
+	
+	/**
+	 * Adds the list items to the icon list prototype.
+	 */
+	_createListItems: function() {
 		for (var $index in this._icons) {
 			var $iconName = this._icons[$index];
 			
