@@ -4,7 +4,7 @@
 		<packagename>Font Awesome Icon Util</packagename>
 		<packagedescription><![CDATA[Provides PHP and JavaScript API for selecting Font Awesome icons]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Stellt PHP- und JavaScript-API zur Auswahl von Font Awesome-Icons bereit]]></packagedescription>
-		<version>1.0.0 RC 1</version>
+		<version>1.1.0 Beta 1</version>
 		<date>2014-02-01</date>
 	</packageinformation>
 	
