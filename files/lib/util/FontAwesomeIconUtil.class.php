@@ -1,6 +1,5 @@
 <?php
 namespace wcf\util;
-use wcf\system\WCF;
 
 /**
  * Provides Font Awesome-related functions.
