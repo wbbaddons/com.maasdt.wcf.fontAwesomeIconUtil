@@ -40,6 +40,12 @@ WCF.Icon.FontAwesome.IconList = Class.extend({
 	_iconLists: { },
 	
 	/**
+	 * selector for the clickable icons the in the list
+	 * @var	string
+	 */
+	_iconSelector: 'span.icon.icon32',
+	
+	/**
 	 * names of the icons
 	 * @var	array<string>
 	 */
@@ -107,7 +113,7 @@ WCF.Icon.FontAwesome.IconList = Class.extend({
 			$ul.data('buttonID', $buttonID).appendTo(this._iconLists[$buttonID]);
 			
 			if ($select) {
-				$ul.find('span.icon.icon32').attr('title', WCF.Language.get('wcf.icon.fontAwesome.selectIcon')).addClass('pointer jsTooltip').data('select', $select).click($.proxy(this._selectIcon, this));
+				$ul.find(this._iconSelector).attr('title', WCF.Language.get('wcf.icon.fontAwesome.selectIcon')).addClass('pointer jsTooltip').data('select', $select).click($.proxy(this._selectIcon, this));
 			}
 		}
 		
