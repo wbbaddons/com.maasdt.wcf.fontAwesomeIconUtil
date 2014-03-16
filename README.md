@@ -43,4 +43,4 @@ If you want to use the dialog icon list as an additional possibility to select i
 License
 -------
 
-This package licensed under the GNU Lesser General Public License which can be found in the LICENSE file in this folder.
+This package is licensed under the GNU Lesser General Public License which can be found in the LICENSE file in this folder.
