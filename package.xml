@@ -4,8 +4,8 @@
 		<packagename>Font Awesome Icon Util</packagename>
 		<packagedescription><![CDATA[Provides PHP and JavaScript API for selecting Font Awesome icons]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Stellt PHP- und JavaScript-API zur Auswahl von Font Awesome-Icons bereit]]></packagedescription>
-		<version>1.1.0 Beta 1</version>
-		<date>2014-02-01</date>
+		<version>1.1.0 RC 1</version>
+		<date>2014-07-04</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -14,13 +14,17 @@
 	</authorinformation>
 	
 	<requiredpackages>
-		<requiredpackage minversion="2.0.2 pl 1">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="2.0.7">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 	
 	<instructions type="install">
 		<instruction type="file">files.tar</instruction>
 		
 		<instruction type="language">language/*.xml</instruction>
+	</instructions>
+	
+	<instructions type="update" fromversion="1.1.0 Beta 1">
+		<instruction type="file">files.tar</instruction>
 	</instructions>
 	
 	<instructions type="update" fromversion="1.0.0">
