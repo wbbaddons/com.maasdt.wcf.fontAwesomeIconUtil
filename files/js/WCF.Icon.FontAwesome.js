@@ -117,8 +117,14 @@ WCF.Icon.FontAwesome.IconList = Class.extend({
 			}
 		}
 		
+		var $title = WCF.Language.get('wcf.icon.fontAwesome.iconSelection');
+		if ($title === 'wcf.icon.fontAwesome.iconSelection') {
+			// fallback to deprecated language item
+			$title = WCF.Language.get('wcf.icon.fontAwesome.dialogTitle');
+		}
+		
 		this._iconLists[$buttonID].wcfDialog({
-			title: WCF.Language.get('wcf.icon.fontAwesome.dialogTitle')
+			title: $title
 		});
 	}
 });
