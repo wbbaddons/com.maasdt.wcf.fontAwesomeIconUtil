@@ -4,6 +4,15 @@ Font Awesome Icon Util
 Font Awesome Icon Util provides PHP and JavaScript code for selecting Font Awesome icons.
 
 
+Version 1.2
+-----------
+
+Please note that version 1.2 (with support for Font Awesome in version 4.1) introduces non-backward compatible changes which include:
+
+* `wcf\util\FontAwesomeIconUtil::getIcons()` returns an enumerated array with the icon names as the value. Do not rely on array keys anymore!
+* `wcf\util\FontAwesomeIconUtil::getIcons()` will only return current names used in version 4.1 of Font Awesome. When updating to this version, use `wcf\util\FontAwesomeIconUtil::getIconUpdates()` to update old icon names to new icon names.
+
+
 Code examples
 -------------
 
@@ -37,6 +46,15 @@ If you want to use the dialog icon list as an additional possibility to select i
 ```smarty
 {htmlOptions options=$icons name="icon" id="icon" selected=$icon}
 <span class="icon icon16 icon-th pointer jsFontAwesomeIconListButton jsTooltip" data-select="icon" title="{lang}wcf.icon.fontAwesome.iconSelection{/lang}"></span>
+```
+
+**Since version 1.2:**
+
+When transforming a given icon name to a CSS class name or a LESS variable name, you should use:
+
+```php
+$cssClassName = \wcf\util\FontAwesomeIconUtil::getCSSClassName($icon);
+$lessVariableName = \wcf\util\FontAwesomeIconUtil::getLESSVariableName($icon);
 ```
 
 

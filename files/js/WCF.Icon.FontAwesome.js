@@ -80,7 +80,7 @@ WCF.Icon.FontAwesome.IconList = Class.extend({
 		for (var $index in this._icons) {
 			var $iconName = this._icons[$index];
 			
-			$('<li><div class="box32"><span class="icon icon32 icon-' + $iconName + '" data-icon-name="' + $iconName + '" /> <p>' + $iconName + '</p></div></li>').appendTo(this._iconListPrototype);
+			$('<li><div class="box32"><span class="icon icon32 fa-' + $iconName + '" data-icon-name="' + $iconName + '" /> <p>' + $iconName + '</p></div></li>').appendTo(this._iconListPrototype);
 		}
 	},
 	
