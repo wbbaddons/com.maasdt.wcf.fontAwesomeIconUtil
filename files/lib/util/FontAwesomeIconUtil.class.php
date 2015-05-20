@@ -536,7 +536,7 @@ final class FontAwesomeIconUtil {
 		'youtube',
 		'youtube-play',
 		'youtube-square'
-);
+	);
 	
 	/**
 	 * maps old (v3) icon names to new (v4) icon names
