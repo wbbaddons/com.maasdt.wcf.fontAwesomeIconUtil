@@ -9,7 +9,7 @@ use wcf\util\FontAwesomeIconUtil;
  * Option type implementation for Font Awesome icon selection.
  * 
  * @author	Matthias Schmidt
- * @copyright	2014 Maasdt
+ * @copyright	2014-2016 Maasdt
  * @license	GNU Lesser General Public License <http://www.gnu.org/licenses/lgpl.html>
  * @package	com.maasdt.wcf.fontAwesomeIconUtil
  * @subpackage	system.option
@@ -17,47 +17,45 @@ use wcf\util\FontAwesomeIconUtil;
  */
 class FontAwesomeIconSelectOptionType extends SelectOptionType {
 	/**
-	 * @see	\wcf\system\option\IOptionType::getFormElement()
+	 * @inheritDoc
 	 */
 	public function getFormElement(Option $option, $value) {
 		$options = $this->parseEnableOptions($option);
 		
-		return WCF::getTPL()->fetch('selectOptionType', 'wcf', array(
+		return WCF::getTPL()->fetch('selectOptionType', 'wcf', [
 			'disableOptions' => $options['disableOptions'],
 			'enableOptions' => $options['enableOptions'],
 			'option' => $option,
 			'selectOptions' => $this->getIcons($option),
 			'value' => $value,
-			'allowEmptyValue' => ($this->allowEmptyValue || $option->allowEmptyValue)
-		));
+			'allowEmptyValue' => $this->allowEmptyValue || $option->allowEmptyValue
+		]);
 	}
 	
 	/**
 	 * Returns the selectable icons.
 	 * 
-	 * @param	\wcf\data\option\Option		$option
-	 * @return	array<string>
+	 * @param	Option		$option
+	 * @return	string[]
 	 */
 	protected function getIcons(Option $option) {
-		$icons = FontAwesomeIconUtil::getIcons();
+		$icons = FontAwesomeIconUtil::getIconNames();
 		
 		// check if selecting an icon is optional
-		if ($option->noselection) {
-			$icons = array_merge(array(
-				'' => WCF::getLanguage()->get($option->noselection != 1 ? $option->noselection : 'wcf.global.noSelection')
-			), $icons);
+		if ($option->noSelection) {
+			$icons = array_merge([
+				'' => WCF::getLanguage()->get($option->noSelection != 1 ? $option->noSelection : 'wcf.global.noSelection')
+			], $icons);
 		}
 		
 		return $icons;
 	}
 	
 	/**
-	 * @see	\wcf\system\option\IOptionType::validate()
+	 * @inheritDoc
 	 */
 	public function validate(Option $option, $newValue) {
-		$icons = $this->getIcons($option);
-		
-		if (!isset($icons[$newValue])) {
+		if (!isset($this->getIcons($option)[$newValue])) {
 			throw new UserInputException($option->optionName, 'validationFailed');
 		}
 	}

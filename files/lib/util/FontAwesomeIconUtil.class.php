@@ -5,7 +5,7 @@ namespace wcf\util;
  * Provides Font Awesome-related functions.
  * 
  * @author	Matthias Schmidt
- * @copyright	2014 Maasdt
+ * @copyright	2014-2016 Maasdt
  * @license	GNU Lesser General Public License <http://www.gnu.org/licenses/lgpl.html>
  * @package	com.maasdt.wcf.fontAwesomeIconUtil
  * @subpackage	util
@@ -14,16 +14,19 @@ namespace wcf\util;
 final class FontAwesomeIconUtil {
 	/**
 	 * list with the icon names
-	 * @var	array<string>
+	 * @var	string[]
 	 */
-	protected static $icons = array(
+	protected static $iconNames = [
+		'fa-500px',
 		'adjust',
 		'adn',
 		'align-center',
 		'align-justify',
 		'align-left',
 		'align-right',
+		'amazon',
 		'ambulance',
+		'american-sign-language-interpreting',
 		'anchor',
 		'android',
 		'angellist',
@@ -54,32 +57,45 @@ final class FontAwesomeIconUtil {
 		'arrows-alt',
 		'arrows-h',
 		'arrows-v',
+		'assistive-listening-systems',
 		'asterisk',
 		'at',
+		'audio-description',
 		'backward',
+		'balance-scale',
 		'ban',
-		'bar-chart-o',
+		'bar-chart',
 		'barcode',
 		'bars',
+		'battery-empty',
+		'battery-full',
+		'battery-half',
+		'battery-quarter',
+		'battery-three-quarters',
 		'bed',
 		'beer',
 		'behance',
 		'behance-square',
 		'bell',
 		'bell-o',
-		'bell-shlash',
+		'bell-slash',
 		'bell-slash-o',
 		'bicycle',
 		'binoculars',
 		'birthday-cake',
 		'bitbucket',
 		'bitbucket-square',
+		'black-tie',
+		'blind',
+		'bluetooth',
+		'bluetooth-b',
 		'bold',
 		'bolt',
 		'bomb',
 		'book',
 		'bookmark',
 		'bookmark-o',
+		'braille',
 		'briefcase',
 		'btc',
 		'bug',
@@ -91,7 +107,11 @@ final class FontAwesomeIconUtil {
 		'buysellads',
 		'calculator',
 		'calendar',
+		'calendar-check-o',
+		'calendar-minus-o',
 		'calendar-o',
+		'calendar-plus-o',
+		'calendar-times-o',
 		'camera',
 		'camera-retro',
 		'car',
@@ -107,7 +127,9 @@ final class FontAwesomeIconUtil {
 		'cart-plus',
 		'cc',
 		'cc-amex',
+		'cc-diners-club',
 		'cc-discover',
+		'cc-jcb',
 		'cc-mastercard',
 		'cc-paypal',
 		'cc-stripe',
@@ -128,31 +150,39 @@ final class FontAwesomeIconUtil {
 		'chevron-right',
 		'chevron-up',
 		'child',
+		'chrome',
 		'circle',
 		'circle-o',
 		'circle-o-notch',
 		'circle-thin',
 		'clipboard',
 		'clock-o',
+		'clone',
 		'cloud',
 		'cloud-download',
 		'cloud-upload',
 		'code',
 		'code-fork',
 		'codepen',
+		'codiepie',
 		'coffee',
 		'cog',
 		'cogs',
 		'columns',
 		'comment',
 		'comment-o',
+		'commenting',
+		'commenting-o',
 		'comments',
 		'comments-o',
 		'compass',
 		'compress',
 		'connectdevelop',
+		'contao',
 		'copyright',
+		'creative-commons',
 		'credit-card',
+		'credit-card-alt',
 		'crop',
 		'crosshairs',
 		'css3',
@@ -161,6 +191,7 @@ final class FontAwesomeIconUtil {
 		'cutlery',
 		'dashcube',
 		'database',
+		'deaf',
 		'delicious',
 		'desktop',
 		'deviantart',
@@ -171,6 +202,7 @@ final class FontAwesomeIconUtil {
 		'dribbble',
 		'dropbox',
 		'drupal',
+		'edge',
 		'eject',
 		'ellipsis-h',
 		'ellipsis-v',
@@ -178,6 +210,7 @@ final class FontAwesomeIconUtil {
 		'envelope',
 		'envelope-o',
 		'envelope-square',
+		'envira',
 		'eraser',
 		'eur',
 		'exchange',
@@ -185,13 +218,14 @@ final class FontAwesomeIconUtil {
 		'exclamation-circle',
 		'exclamation-triangle',
 		'expand',
+		'expeditedssl',
 		'external-link',
 		'external-link-square',
 		'eye',
 		'eye-slash',
 		'eyedropper',
 		'facebook',
-		'facebook-offical',
+		'facebook-official',
 		'facebook-square',
 		'fast-backward',
 		'fast-forward',
@@ -216,6 +250,8 @@ final class FontAwesomeIconUtil {
 		'filter',
 		'fire',
 		'fire-extinguisher',
+		'firefox',
+		'first-order',
 		'flag',
 		'flag-checkered',
 		'flag-o',
@@ -227,6 +263,9 @@ final class FontAwesomeIconUtil {
 		'folder-open',
 		'folder-open-o',
 		'font',
+		'font-awesome',
+		'fonticons',
+		'fort-awesome',
 		'forumbee',
 		'forward',
 		'foursquare',
@@ -235,26 +274,42 @@ final class FontAwesomeIconUtil {
 		'gamepad',
 		'gavel',
 		'gbp',
+		'genderless',
+		'get-pocket',
+		'gg',
+		'gg-circle',
 		'gift',
 		'git',
 		'git-square',
 		'github',
 		'github-alt',
 		'github-square',
-		'gittip',
+		'gitlab',
 		'glass',
+		'glide',
+		'glide-g',
 		'globe',
 		'google',
 		'google-plus',
+		'google-plus-official',
 		'google-plus-square',
 		'google-wallet',
 		'graduation-cap',
+		'gratipay',
 		'h-square',
 		'hacker-news',
+		'hand-lizard-o',
 		'hand-o-down',
 		'hand-o-left',
 		'hand-o-right',
 		'hand-o-up',
+		'hand-paper-o',
+		'hand-peace-o',
+		'hand-pointer-o',
+		'hand-rock-o',
+		'hand-scissors-o',
+		'hand-spock-o',
+		'hashtag',
 		'hdd-o',
 		'header',
 		'headphones',
@@ -264,14 +319,23 @@ final class FontAwesomeIconUtil {
 		'history',
 		'home',
 		'hospital-o',
+		'hourglass',
+		'hourglass-end',
+		'hourglass-half',
+		'hourglass-o',
+		'hourglass-start',
+		'houzz',
 		'html5',
+		'i-cursor',
 		'ils',
 		'inbox',
 		'indent',
+		'industry',
 		'info',
 		'info-circle',
 		'inr',
 		'instagram',
+		'internet-explorer',
 		'ioxhost',
 		'italic',
 		'joomla',
@@ -306,10 +370,15 @@ final class FontAwesomeIconUtil {
 		'long-arrow-left',
 		'long-arrow-right',
 		'long-arrow-up',
+		'low-vision',
 		'magic',
 		'magnet',
 		'male',
+		'map',
 		'map-marker',
+		'map-o',
+		'map-pin',
+		'map-signs',
 		'mars',
 		'mars-double',
 		'mars-stroke',
@@ -327,14 +396,24 @@ final class FontAwesomeIconUtil {
 		'minus-circle',
 		'minus-square',
 		'minus-square-o',
+		'mixcloud',
 		'mobile',
+		'modx',
 		'money',
 		'moon-o',
 		'motorcycle',
+		'mouse-pointer',
 		'music',
 		'neuter',
 		'newspaper-o',
+		'object-group',
+		'object-ungroup',
+		'odnoklassniki',
+		'odnoklassniki-square',
+		'opencart',
 		'openid',
+		'opera',
+		'optin-monster',
 		'outdent',
 		'pagelines',
 		'paint-brush',
@@ -343,17 +422,21 @@ final class FontAwesomeIconUtil {
 		'paperclip',
 		'paragraph',
 		'pause',
+		'pause-circle',
+		'pause-circle-o',
 		'paw',
 		'paypal',
 		'pencil',
 		'pencil-square',
 		'pencil-square-o',
+		'percent',
 		'phone',
 		'phone-square',
 		'picture-o',
 		'pie-chart',
 		'pied-piper',
 		'pied-piper-alt',
+		'pied-piper-pp',
 		'pinterest',
 		'pinterest-p',
 		'pinterest-square',
@@ -368,19 +451,23 @@ final class FontAwesomeIconUtil {
 		'plus-square-o',
 		'power-off',
 		'print',
+		'product-hunt',
 		'puzzle-piece',
 		'qq',
 		'qrcode',
 		'question',
 		'question-circle',
+		'question-circle-o',
 		'quote-left',
 		'quote-right',
 		'random',
 		'rebel',
 		'recycle',
 		'reddit',
+		'reddit-alien',
 		'reddit-square',
 		'refresh',
+		'registered',
 		'renren',
 		'repeat',
 		'reply',
@@ -391,7 +478,9 @@ final class FontAwesomeIconUtil {
 		'rss',
 		'rss-square',
 		'rub',
+		'safari',
 		'scissors',
+		'scribd',
 		'search',
 		'search-minus',
 		'search-plus',
@@ -405,8 +494,11 @@ final class FontAwesomeIconUtil {
 		'shield',
 		'ship',
 		'shirtsinbulk',
+		'shopping-bag',
+		'shopping-basket',
 		'shopping-cart',
 		'sign-in',
+		'sign-language',
 		'sign-out',
 		'signal',
 		'simplybuilt',
@@ -417,6 +509,9 @@ final class FontAwesomeIconUtil {
 		'sliders',
 		'slideshare',
 		'smile-o',
+		'snapchat',
+		'snapchat-ghost',
+		'snapchat-square',
 		'sort',
 		'sort-alpha-asc',
 		'sort-alpha-desc',
@@ -444,7 +539,11 @@ final class FontAwesomeIconUtil {
 		'step-backward',
 		'step-forward',
 		'stethoscope',
+		'sticky-note',
+		'sticky-note-o',
 		'stop',
+		'stop-circle',
+		'stop-circle-o',
 		'street-view',
 		'strikethrough',
 		'stumbleupon',
@@ -461,6 +560,7 @@ final class FontAwesomeIconUtil {
 		'tags',
 		'tasks',
 		'taxi',
+		'television',
 		'tencent-weibo',
 		'terminal',
 		'text-height',
@@ -468,6 +568,7 @@ final class FontAwesomeIconUtil {
 		'th',
 		'th-large',
 		'th-list',
+		'themeisle',
 		'thumb-tack',
 		'thumbs-down',
 		'thumbs-o-down',
@@ -479,7 +580,8 @@ final class FontAwesomeIconUtil {
 		'times-circle-o',
 		'tint',
 		'toggle-off',
-		'toogle-on',
+		'toggle-on',
+		'trademark',
 		'train',
 		'transgender',
 		'transgender-alt',
@@ -487,6 +589,7 @@ final class FontAwesomeIconUtil {
 		'trash-o',
 		'tree',
 		'trello',
+		'tripadvisor',
 		'trophy',
 		'truck',
 		'try',
@@ -499,10 +602,12 @@ final class FontAwesomeIconUtil {
 		'umbrella',
 		'underline',
 		'undo',
+		'universal-access',
 		'university',
 		'unlock',
 		'unlock-alt',
 		'upload',
+		'usb',
 		'usd',
 		'user',
 		'user-md',
@@ -514,10 +619,14 @@ final class FontAwesomeIconUtil {
 		'venus-double',
 		'venus-mars',
 		'viacoin',
+		'viadeo',
+		'viadeo-square',
 		'video-camera',
+		'vimeo',
 		'vimeo-square',
 		'vine',
 		'vk',
+		'volume-control-phone',
 		'volume-down',
 		'volume-off',
 		'volume-up',
@@ -525,232 +634,86 @@ final class FontAwesomeIconUtil {
 		'weixin',
 		'whatsapp',
 		'wheelchair',
+		'wheelchair-alt',
 		'wifi',
+		'wikipedia-w',
 		'windows',
 		'wordpress',
+		'wpbeginner',
+		'wpforms',
 		'wrench',
 		'xing',
 		'xing-square',
+		'y-combinator',
 		'yahoo',
 		'yelp',
+		'yoast',
 		'youtube',
 		'youtube-play',
 		'youtube-square'
-	);
+	];
 	
 	/**
-	 * maps old (v3) icon names to new (v4) icon names
-	 * @deprecated	will be removed or updated with the next version, only rely
-	 * on it when updating to this version
-	 * @var	array<string>
+	 * supported Font Awesome version
 	 */
-	protected static $iconUpdates = array(
-		'ban-circle' => 'ban',
-		'bar-chart' => 'bar-chart-o',
-		'beaker' => 'flask',
-		'bell' => 'bell-o',
-		'bell-alt' => 'bell',
-		'bitbucket-sign' => 'bitbucket-square',
-		'bookmark-empty' => 'bookmark-o',
-		'building' => 'building-o',
-		'calendar-empty' => 'calendar-o',
-		'check-empty' => 'square-o',
-		'check-minus' => 'minus-square-o',
-		'check-sign' => 'check-square',
-		'check' => 'check-square-o',
-		'chevron-sign-down' => 'chevron-down',
-		'chevron-sign-left' => 'chevron-left',
-		'chevron-sign-right' => 'chevron-right',
-		'chevron-sign-up' => 'chevron-up',
-		'circle-arrow-down' => 'arrow-circle-down',
-		'circle-arrow-left' => 'arrow-circle-left',
-		'circle-arrow-right' => 'arrow-circle-right',
-		'circle-arrow-up' => 'arrow-circle-up',
-		'circle-blank' => 'circle-o',
-		'cny' => 'rub',
-		'collapse-alt' => 'minus-square-o',
-		'collapse-top' => 'caret-square-o-up',
-		'collapse' => 'caret-square-o-down',
-		'comment-alt' => 'comment-o',
-		'comments-alt' => 'comments-o',
-		'copy' => 'files-o',
-		'cut' => 'scissors',
-		'dashboard' => 'tachometer',
-		'double-angle-down' => 'angle-double-down',
-		'double-angle-left' => 'angle-double-left',
-		'double-angle-right' => 'angle-double-right',
-		'double-angle-up' => 'angle-double-up',
-		'download' => 'arrow-circle-o-down',
-		'download-alt' => 'download',
-		'edit' => 'pencil-square-o',
-		'edit-sign' => 'pencil-square',
-		'ellipsis-horizontal' => 'ellipsis-h',
-		'ellipsis-vertical' => 'ellipsis-v',
-		'envelope-alt' => 'envelope-o',
-		'exclamation-sign' => 'exclamation-circle',
-		'expand-alt' => 'plus-square-o',
-		'expand' => 'caret-square-o-right',
-		'external-link-sign' => 'external-link-square',
-		'eye-close' => 'eye-slash',
-		'eye-open' => 'eye',
-		'facebook-sign' => 'facebook-square',
-		'facetime-video' => 'video-camera',
-		'file-alt' => 'file-o',
-		'file-text-alt' => 'file-text-o',
-		'flag-alt' => 'flag-o',
-		'folder-close-alt' => 'folder-o',
-		'folder-close' => 'folder',
-		'folder-open-alt' => 'folder-open-o',
-		'food' => 'cutlery',
-		'frown' => 'frown-o',
-		'fullscreen' => 'arrows-alt',
-		'github-sign' => 'github-square',
-		'google-plus-sign' => 'google-plus-square',
-		'group' => 'users',
-		'h-sign' => 'h-square',
-		'hand-down' => 'hand-o-down',
-		'hand-left' => 'hand-o-left',
-		'hand-right' => 'hand-o-right',
-		'hand-up' => 'hand-o-up',
-		'hdd' => 'hdd-o',
-		'heart-empty' => 'heart-o',
-		'hospital' => 'hospital-o',
-		'indent-left' => 'outdent',
-		'indent-right' => 'indent',
-		'info-sign' => 'info-circle',
-		'keyboard' => 'keyboard-o',
-		'legal' => 'gavel',
-		'lemon' => 'lemon-o',
-		'lightbulb' => 'lightbulb-o',
-		'linkedin-sign' => 'linkedin-square',
-		'mail-reply-all' => 'reply-all', // mail-reply-all is an alias which was included previously by accident
-		'meh' => 'meh-o',
-		'microphone-off' => 'microphone-slash',
-		'minus-sign-alt' => 'minus-square',
-		'minus-sign' => 'minus-circle',
-		'mobile-phone' => 'mobile',
-		'moon' => 'moon-o',
-		'move' => 'arrows',
-		'off' => 'power-off',
-		'ok-circle' => 'check-circle-o',
-		'ok-sign' => 'check-circle',
-		'ok' => 'check',
-		'paper-clip' => 'paperclip',
-		'paste' => 'clipboard',
-		'phone-sign' => 'phone-square',
-		'picture' => 'picture-o',
-		'pinterest-sign' => 'pinterest-square',
-		'play-circle' => 'play-circle-o',
-		'play-sign' => 'play-circle',
-		'plus-sign-alt' => 'plus-square',
-		'plus-sign' => 'plus-circle',
-		'pushpin' => 'thumb-tack',
-		'question-sign' => 'question-circle',
-		'remove-circle' => 'times-circle-o',
-		'remove-sign' => 'times-circle',
-		'remove' => 'times',
-		'reorder' => 'bars',
-		'resize-full' => 'expand',
-		'resize-horizontal' => 'arrows-h',
-		'resize-small' => 'compress',
-		'resize-vertical' => 'arrows-v',
-		'rss-sign' => 'rss-square',
-		'save' => 'floppy-o',
-		'screenshot' => 'crosshairs',
-		'share-alt' => 'share',
-		'share-sign' => 'share-square',
-		'share' => 'share-square-o',
-		'sign-blank' => 'square',
-		'signin' => 'sign-in',
-		'signout' => 'sign-out',
-		'smile' => 'smile-o',
-		'sort-by-alphabet-alt' => 'sort-alpha-desc',
-		'sort-by-alphabet' => 'sort-alpha-asc',
-		'sort-by-attributes-alt' => 'sort-amount-desc',
-		'sort-by-attributes' => 'sort-amount-asc',
-		'sort-by-order-alt' => 'sort-numeric-desc',
-		'sort-by-order' => 'sort-numeric-asc',
-		'sort-down' => 'sort-desc',
-		'sort-up' => 'sort-asc',
-		'stackexchange' => 'stack-overflow',
-		'star-empty' => 'star-o',
-		'star-half-empty' => 'star-half-o',
-		'sun' => 'sun-o',
-		'thumbs-down-alt' => 'thumbs-o-down',
-		'thumbs-up-alt' => 'thumbs-o-up',
-		'time' => 'clock-o',
-		'trash' => 'trash-o',
-		'tumblr-sign' => 'tumblr-square',
-		'twitter-sign' => 'twitter-square',
-		'unlink' => 'chain-broken',
-		'upload' => 'arrow-circle-o-up',
-		'upload-alt' => 'upload',
-		'warning-sign' => 'exclamation-triangle',
-		'xing-sign' => 'xing-square',
-		'youtube-sign' => 'youtube-square',
-		'zoom-in' => 'search-plus',
-		'zoom-out' => 'search-minus'
-	);
-	
-	/**
-	 * defines the version of Font Awesome the util belongs to
-	 * @var	string
-	 */
-	const FONT_AWESOME_VERSION = '4.3.0';
-	
-	/**
-	 * Returns the CSS class name of the given icon.
-	 * 
-	 * @param	string		$icon
-	 * @return	string
-	 */
-	public static function getCSSClassName($icon) {
-		return 'fa-'.$icon;
-	}
-	
-	/**
-	 * Returns the available icons.
-	 * 
-	 * @return	array<string>
-	 */
-	public static function getIcons() {
-		return self::$icons;
-	}
-	
-	/**
-	 * Returns an update map to convert old icon names into new icon names.
-	 * 
-	 * @return	array<string>
-	 */
-	public static function getIconUpdates() {
-		return self::$iconUpdates;
-	}
-	
-	
-	/**
-	 * Returns the LESS variable name of the given icon.
-	 * 
-	 * @param	string		$icon
-	 * @return	string
-	 */
-	public static function getLESSVariableName($icon) {
-		return 'fa-var-'.$icon;
-	}
-	
-	/**
-	 * Returns true if the given icon exists.
-	 * 
-	 * @param	string		$icon
-	 * @return	boolean
-	 */
-	public static function isValid($icon) {
-		return in_array($icon, self::$icons);
-	}
+	const FONT_AWESOME_VERSION = '4.6.3';
 	
 	/**
 	 * Disables creating FontAwesomeIconUtil objects.
 	 */
 	private function __construct() {
 		// does nothing
+	}
+	
+	/**
+	 * Returns the appropriate css class for the icon with the given name or `null` if no icon with
+	 * the given name exists.
+	 *
+	 * Important: Only store the icon names, never the css classes and always rely on this method
+	 * for mapping the icon name to the css class.
+	 *
+	 * @param	string		$iconName	name of the icon
+	 * @return	string|null	css class of the icon
+	 */
+	public static function getCssClass($iconName) {
+		if (!self::isValid($iconName)) {
+			return null;
+		}
+		
+		return 'fa-'.$iconName;
+	}
+	
+	/**
+	 * Returns the list of names of the available icons.
+	 *
+	 * @return	string[]	names of the available icons
+	 */
+	public static function getIconNames() {
+		return self::$iconNames;
+	}
+	
+	/**
+	 * Returns the name of the scss variable for the icon with the given name or `null` if no icon
+	 * with the given name exists.
+	 *
+	 * @param	string		$iconName	name of the icon
+	 * @return	string|null
+	 */
+	public static function getScssVariableName($iconName) {
+		if (!self::isValid($iconName)) {
+			return null;
+		}
+		
+		return '$fa-var-'.$iconName;
+	}
+	
+	/**
+	 * Returns `true` if an icon with the given name exists.
+	 *
+	 * @param	string		$iconName	name of the icon
+	 * @return	boolean		`true` if icon exists
+	 */
+	public static function isValid($iconName) {
+		return in_array($iconName, self::$iconNames);
 	}
 }
